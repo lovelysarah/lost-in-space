@@ -1,3 +1,5 @@
+#include <Arduino.h>;
+
 int switch1 = 2;
 
 int active;
@@ -36,7 +38,7 @@ void loop() {
   if(digitalRead(switch1) == HIGH) { 
 
     powered = true;
-    delay(750);
+    delay(500);
     
     // If active isn't set and or it has reached the end, set it to first pin.
     if(!active || active == maxPin+1){
