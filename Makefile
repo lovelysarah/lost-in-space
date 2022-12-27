@@ -1,5 +1,5 @@
-SKETCH_DIR=creative/
-SKETCH_NAME=day-5
+SKETCH_DIR=day-6/
+SKETCH_NAME=day-6
 
 BIN=/usr/bin
 AVR_HARDWARE=/usr/share/arduino/hardware/archlinux-arduino/avr
@@ -13,7 +13,7 @@ ARDUINO_CC=${BIN}/avr-gcc
 ARDUINO_CPP=${BIN}/avr-g++
 ARDUINO_AR=${BIN}/avr-ar
 
-OBJECT_FILES=$(SKETCH_NAME).o wiring.o wiring_pulse.o wiring_digital.o wiring_shift.o wiring_analog.o WInterrupts.o Stream.o HardwareSerial.o CDC.o WString.o Print.o new.o main.o WMath.o IPAddress.o USBCore.o Tone.o PluggableUSB.o hooks.o
+OBJECT_FILES=$(SKETCH_NAME).o wiring.o wiring_pulse.o wiring_digital.o wiring_shift.o wiring_analog.o WInterrupts.o Stream.o HardwareSerial.o CDC.o WString.o Print.o new.o main.o WMath.o IPAddress.o USBCore.o Tone.o PluggableUSB.o hooks.o HardwareSerial0.o HardwareSerial1.o HardwareSerial2.o HardwareSerial3.o
 D_FILES=$(OBJECT_FILES:.o=.d)
 
 default: $(OBJECT_FILES)
@@ -27,6 +27,10 @@ default: $(OBJECT_FILES)
 	$(ARDUINO_AR) rcs core.a WInterrupts.o 
 	$(ARDUINO_AR) rcs core.a Stream.o 
 	$(ARDUINO_AR) rcs core.a HardwareSerial.o 
+	$(ARDUINO_AR) rcs core.a HardwareSerial0.o 
+	$(ARDUINO_AR) rcs core.a HardwareSerial1.o 
+	$(ARDUINO_AR) rcs core.a HardwareSerial2.o 
+	$(ARDUINO_AR) rcs core.a HardwareSerial3.o 
 	$(ARDUINO_AR) rcs core.a CDC.o 
 	$(ARDUINO_AR) rcs core.a WString.o 
 	$(ARDUINO_AR) rcs core.a Print.o 
@@ -73,6 +77,17 @@ Stream.o: $(ARDUINO_CORE_SOURCE_DIR)/Stream.cpp
 	 $(ARDUINO_CPP) $(GPP_FLAGS) $< -o $@
 
 HardwareSerial.o: $(ARDUINO_CORE_SOURCE_DIR)/HardwareSerial.cpp
+	 $(ARDUINO_CPP) $(GPP_FLAGS) $< -o $@
+HardwareSerial0.o: $(ARDUINO_CORE_SOURCE_DIR)/HardwareSerial0.cpp
+	 $(ARDUINO_CPP) $(GPP_FLAGS) $< -o $@
+
+HardwareSerial1.o: $(ARDUINO_CORE_SOURCE_DIR)/HardwareSerial1.cpp
+	 $(ARDUINO_CPP) $(GPP_FLAGS) $< -o $@
+
+HardwareSerial2.o: $(ARDUINO_CORE_SOURCE_DIR)/HardwareSerial2.cpp
+	 $(ARDUINO_CPP) $(GPP_FLAGS) $< -o $@
+
+HardwareSerial3.o: $(ARDUINO_CORE_SOURCE_DIR)/HardwareSerial3.cpp
 	 $(ARDUINO_CPP) $(GPP_FLAGS) $< -o $@
 
 CDC.o: $(ARDUINO_CORE_SOURCE_DIR)/CDC.cpp
