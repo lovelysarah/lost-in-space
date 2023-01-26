@@ -1,5 +1,5 @@
-SKETCH_DIR=day-8/
-SKETCH_NAME=day-8
+SKETCH_DIR=day-9/
+SKETCH_NAME=day-9
 
 BIN=/usr/bin
 AVR_HARDWARE=/usr/share/arduino/hardware/archlinux-arduino/avr
